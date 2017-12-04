@@ -27,6 +27,7 @@ int command_cf(RedisModuleCtx* ctx, RedisModuleString** argv, int argc) {
     RedisModule_ZsetRangeNext(key);
   }
   RedisModule_ZsetRangeStop(key);
+  RedisModule_CloseKey(key);
   
   RedisModule_ReplyWithLongLong(ctx, found);
   return REDISMODULE_OK;
